@@ -19,11 +19,5 @@ interface Rates {
 export class Dropdown {
   @Input() rates: Rates[];
   @Input() onRatesChange: (e: any) => void;
-
-  img: string;
-
-  change(e: any) {
-    const country = e.target.textContent.slice(0, 2);
-    this.img = `https://flagsapi.com/${country}/flat/48.png`;
-  }
+  @Input() img: Rates[];
 }

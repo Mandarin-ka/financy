@@ -12,8 +12,5 @@ import { FormsModule } from '@angular/forms';
 })
 export class NumberInput {
   @Input() value: number;
-
-  change(e: any) {
-    console.log(e.target.value);
-  }
+  @Input() change: (e: any) => void;
 }

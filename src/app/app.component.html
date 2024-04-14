@@ -2,13 +2,13 @@
 
 <div class="app">
   <div class="curr">
-    <dropdown [rates]="rates" [onRatesChange]="onRatesChange"></dropdown>
-    <input-number></input-number>
+    <dropdown [rates]="rates" [onRatesChange]="onRate1Change"></dropdown>
+    <input-number [change]="onValue1Change"></input-number>
   </div>
 
   <div class="curr">
-    <dropdown [rates]="rates" [onRatesChange]="onRatesChange"></dropdown>
-    <input-number></input-number>
+    <dropdown [rates]="rates" [onRatesChange]="onRate2Change"></dropdown>
+    <input-number [change]="onValue2Change"></input-number>
   </div>
 </div>
 

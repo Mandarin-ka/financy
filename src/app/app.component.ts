@@ -19,9 +19,13 @@ interface Rate {
 export class AppComponent implements OnInit {
   currencies: any = []; //TODO: any
   rates: Rate[] = [];
+  img: string;
 
-  currentRate1: string;
-  currentRate2: string;
+  protected currentRate1: string;
+  protected currentRate2: string;
+
+  protected currentValue1: string;
+  protected currentValue2: string;
 
   maxDate: Date;
 
@@ -36,11 +40,30 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onRatesChange(e: any) {
-    console.log(e.target.textContent);
+  onRate1Change(e: any) {
+    this.currentRate1 = e.target.textContent;
+
+    const country = e.target.textContent.slice(0, 2);
+    this.img = `https://flagsapi.com/${country}/flat/48.png`;
   }
 
-  onValueChange(e: any) {
-    console.log(e.target.textContent);
+  onRate2Change(e: any) {
+    this.currentRate2 = e.target.textContent;
+
+    const country = e.target.textContent.slice(0, 2);
+    this.img = `https://flagsapi.com/${country}/flat/48.png`;
+  }
+
+  onValue1Change(e: any) {
+    this.currentValue1 = e.target.value;
+    console.log(
+      e.target.parentNode.parentNode.parentNode.parentNode.parentNode
+    );
+    console.log(this.currentValue1, this.currentValue2);
+  }
+
+  onValue2Change(e: any) {
+    this.currentValue2 = e.target.value;
+    console.log(this.currentValue1, this.currentValue2);
   }
 }
