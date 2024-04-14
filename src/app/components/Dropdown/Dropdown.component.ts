@@ -12,9 +12,18 @@ interface Rates {
 @Component({
   selector: 'dropdown',
   templateUrl: 'Dropdown.component.html',
+  styleUrl: 'Dropdown.component.scss',
   imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule],
   standalone: true,
 })
 export class Dropdown {
   @Input() rates: Rates[];
+  @Input() onRatesChange: (e: any) => void;
+
+  img: string;
+
+  change(e: any) {
+    const country = e.target.textContent.slice(0, 2);
+    this.img = `https://flagsapi.com/${country}/flat/48.png`;
+  }
 }

@@ -1,11 +1,16 @@
 <h4>Выберите валюту</h4>
-<mat-form-field>
+<mat-form-field name="name" class="block">
   <mat-label>Валюта</mat-label>
+  <img [src]="img" alt="" />
+
   <mat-select>
     @for (rate of rates; track rate) {
-      <mat-option class="white" [value]="rate[1].currency_name">{{
-        rate[1].currency_name
-      }}</mat-option>
+      <mat-option
+        class="white"
+        (click)="onRatesChange($event)"
+        [value]="rate[0]"
+        >{{ rate[0] }}</mat-option
+      >
     }
   </mat-select>
 </mat-form-field>

@@ -4,7 +4,7 @@ import { NumberInput } from './components/NumberInput/NumberInput.component';
 import { Datepicker } from './components/Datepicker/Datepicker.component';
 import { CurrencyService } from './services/currency.service';
 
-interface Rates {
+interface Rate {
   0: string;
   1: { currency_name: string; rate: string; rate_for_amount: string };
 }
@@ -18,7 +18,10 @@ interface Rates {
 })
 export class AppComponent implements OnInit {
   currencies: any = []; //TODO: any
-  rates: Rates[] = [];
+  rates: Rate[] = [];
+
+  currentRate1: string;
+  currentRate2: string;
 
   maxDate: Date;
 
@@ -31,5 +34,13 @@ export class AppComponent implements OnInit {
       this.currencies = currencies;
       this.rates = Object.entries(this.currencies.rates);
     });
+  }
+
+  onRatesChange(e: any) {
+    console.log(e.target.textContent);
+  }
+
+  onValueChange(e: any) {
+    console.log(e.target.textContent);
   }
 }
