@@ -1,0 +1,11 @@
+<h4>Выберите валюту</h4>
+<mat-form-field>
+  <mat-label>Валюта</mat-label>
+  <mat-select>
+    @for (rate of rates; track rate) {
+      <mat-option class="white" [value]="rate[1].currency_name">{{
+        rate[1].currency_name
+      }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
