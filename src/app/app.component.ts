@@ -40,11 +40,18 @@ export class AppComponent implements OnInit {
     });
   }
 
+  show() {
+    console.log(this.currentRate1, this.currentRate2);
+    console.log(this.currentValue1, this.currentValue2);
+  }
+
   onRate1Change(e: any) {
     this.currentRate1 = e.target.textContent;
 
     const country = e.target.textContent.slice(0, 2);
     this.img = `https://flagsapi.com/${country}/flat/48.png`;
+
+    console.log(this);
   }
 
   onRate2Change(e: any) {
@@ -52,18 +59,15 @@ export class AppComponent implements OnInit {
 
     const country = e.target.textContent.slice(0, 2);
     this.img = `https://flagsapi.com/${country}/flat/48.png`;
+
+    this.show();
   }
 
   onValue1Change(e: any) {
     this.currentValue1 = e.target.value;
-    console.log(
-      e.target.parentNode.parentNode.parentNode.parentNode.parentNode
-    );
-    console.log(this.currentValue1, this.currentValue2);
   }
 
   onValue2Change(e: any) {
     this.currentValue2 = e.target.value;
-    console.log(this.currentValue1, this.currentValue2);
   }
 }
